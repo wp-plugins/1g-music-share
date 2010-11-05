@@ -19,10 +19,10 @@ function getCheckedValue(radioObj) {
 	return "";
 }
 
-function insertWP1GMPcode() {
+function insertWP1GMPcode(id) {
 
 	var tagtext;
-	var play = document.getElementById('wp1gmp_play').value;
+	var play = id;
 
 	tagtext = '[music1g play=' + play + ']';
 

@@ -32,6 +32,10 @@ Or
 
 == Changelog ==
 
+= 0.6 =
+* Fixed IE's errors again.
+* Changed UI ,now it's more beautiful.
+
 = 0.5 =
 * Fixed IE's errors.
 
@@ -42,6 +46,12 @@ Or
 No, this plugin needn't open 1g1g.com to listen music.
 
 == Upgrade Notice ==
+
+= 0.6 =
+* Fixed some UI problems in IE again.
+* Changed UI ,now it's more beautiful.
+* 再次修正在IE下的界面错误。
+* 改变了UI，现在它更漂亮了。
 
 = 0.5 =
 * Fixed some problem in IE.

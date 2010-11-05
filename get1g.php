@@ -1,14 +1,14 @@
 <?php
 $doc = simplexml_load_file("http://search.1g1g.com/public/songs?encoding=utf8&query=".mb_convert_encoding($_GET['q'], "UTF-8","GB2312,UTF-8"));
-echo '<label for="wp1gmp_play">搜索结果：</label>';
-echo '<td><select id="wp1gmp_play" name="wp1gmp_play" style="width: 200px">';
+echo '<label>搜索结果：</label>';
+echo '<ul id="musicSearchResult" style="list-style-image:none;list-style:none;">';
 $search = "";
 foreach ($doc->songlist->song as $item) {
-  echo '<option value="#';
-  echo $item->id;
-  echo '">';
+  echo '<li>';
   echo $item->name.' - '.$item->singer.' - '.$item->album;
-  echo '</option>';
+  echo '<span class="music_sp_color" onclick="insertWP1GMPcode(';
+  echo $item->id;
+  echo ')">分享</span></li>';
 }
-echo  '</select>';
+echo  '</ul>';
 ?>

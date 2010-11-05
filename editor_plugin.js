@@ -12,7 +12,7 @@
 			ed.addCommand('wp1gmp', function() {
 				ed.windowManager.open({
 					file : url + '/window.php',
-					width : 286,
+					width : 400,
 					height : 168,
 					inline : 1
 				}, {

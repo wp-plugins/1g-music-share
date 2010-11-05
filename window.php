@@ -5,22 +5,6 @@
 	<script language="javascript" type="text/javascript" src="/wp-content/plugins/1g-music-share/tinymce.js"></script>
 	<script language="javascript" type="text/javascript" src="/wp-content/plugins/1g-music-share/getsearch.js"></script>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<style type="taxt/css" >
-body{
-    font-family:"微软雅黑","宋体","Lucida Grande";
-    font-size:12px;
-}
-p, h1, form, button{border:0; margin:0; padding:0;}
-.spacer{clear:both; height:1px;}
-input{
-    float:left;
-    font-size:12px;
-    padding:4px 2px;
-    border:solid 1px #aacfe4;
-    width:210px;
-    margin:2px 0 20px 10px;
-}</style>
-
 <script language="javascript">
 function KeyDown()
 {
@@ -32,18 +16,41 @@ function KeyDown()
 　　}
 }
 </script>
+<style type="text/css">
+body {
+	font-family: "微软雅黑", "文泉驿微米黑", "Comic Sans MS";
+	font-size: 13px;
+}
+#musicSearchResult ul {
+font-size:14px;
+height: 85px;
+list-style-image:none;list-style:none;
+}
+#musicSearchResult li {
+font-size:14px;
+border-bottom: 1px solid #CCC;
+clear: both;
+}
+#musicSearchResult li span {
+clear: both;
+float: right;
+}
+#musicSearchResult .music_sp_color {
+color: #046F9E;
+}
+</style>
 </head>
-	<body id="link" onload="tinyMCEPopup.executeOnLoad('init();');document.body.style.display='';" style="display: none" class="stylized">
+	<body>
 <!-- <form onsubmit="insertLink();return false;" action="#"> -->
-	    <p><label  for="wplay">请输入歌手、歌名、专辑名进行搜索</label></p>
-             <p><input type="text" id="wplay" onkeydown="KeyDown()" />
-            <input type="button" id="insert" value="搜索" onClick="showHint();" /></p>
-		<div id="searchquery">
-		</div>
+		<table >
+         <tbody>
+         <tr><td width="400px"><p style="font-size: 13px;" align="center">请输入歌手、歌名、专辑名进行搜索</p></td></tr>
+            <tr><td align="center"><input type="text" id="wplay" onkeydown="KeyDown()" size= "42px"  style="font-size: 13px;"/>
+              <input type="button" id="insert2" value="搜索" onClick="showHint();"  style="font-size: 13px;" /></td>
+            </tr>
+         </tbody>
+         </table>
 		<div id="searchlists">
 		</div>
-<div style="float: right"  class="stylized">
-			    <input class="stylized" type="button" id="insert" name="insert" value="插入" onclick="insertWP1GMPcode();" />
-	  </div>
 </body>
 </html>
