@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /*
 Plugin Name:1g-music-share
 Plugin URI: http://blog.1g1g.info/wp-plugin/
