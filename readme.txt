@@ -31,6 +31,9 @@ Or
 * All Done!
 
 == Changelog ==
+= 0.8 =
+* Fixed UI。
+* 修正了UI。
 
 = 0.6 =
 * Fixed IE's errors again.
@@ -46,6 +49,8 @@ Or
 No, this plugin needn't open 1g1g.com to listen music.
 
 == Upgrade Notice ==
+= 0.8 =
+Fixed UI。
 
 = 0.6 =
 Fixed some UI problems in IE again.
@@ -58,4 +63,4 @@ Fixed some problem in IE.
 
 == Screenshots ==
 
-1. /tags/0.6/wp-mini-player.png
+1. /tags/0.8/wp-mini-player.png
