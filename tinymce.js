@@ -24,7 +24,7 @@ function insertWP1GMPcode(id) {
 	var tagtext;
 	var play = id;
 
-	tagtext = '[music1g play=' + play + ']';
+	tagtext = '[music1g play=#' + play + ']';
 
 	window.tinyMCE.execInstanceCommand('content', 'mceInsertContent', false, tagtext);
 	tinyMCEPopup.editor.execCommand('mceRepaint');
