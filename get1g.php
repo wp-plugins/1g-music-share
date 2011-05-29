@@ -5,7 +5,7 @@ echo '<table id="listbox" width="370">';
 foreach ($doc->songlist->song as $item) {
   echo '<tr><th width="320" >';
   echo $item->name.' - '.$item->singer.' - '.$item->album;
-  echo '</th><th width="38" id="sharebutton" ><div onClick="javascript:insertCode(';
+  echo '</th><th width="38" id="sharebutton" ><div onClick="javascript:insertWP1GMPcode(';
   echo $item->id;
   echo ')">分享</div></th></tr>';
 }
