@@ -12,8 +12,8 @@
 			ed.addCommand('wp1gmp', function() {
 				ed.windowManager.open({
 					file : url + '/window.php',
-					width : 400,
-					height : 168,
+					width : 500,
+					height : 600,
 					inline : 1
 				}, {
 					plugin_url : url // Plugin absolute URL
