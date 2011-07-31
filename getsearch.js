@@ -9,12 +9,12 @@ if (xmlHttp==null)
   alert ("Browser does not support HTTP Request")
   return
   } 
-var url="get1g.php"
+var url="http://blog.1g1g.info/get1g.php"
 url=url+"?q="+str
 xmlHttp.onreadystatechange=stateChanged 
 xmlHttp.open("GET",url,true)
 xmlHttp.send(null)
-document.getElementById("searchlists").innerHTML='<p>获取搜索结果中...搜索词:'+str+'<p>'
+document.getElementById("searchlists").innerHTML='<p>获取搜索结果中...<p>'
 } 
 
 function stateChanged() 
