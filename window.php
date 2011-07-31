@@ -15,7 +15,7 @@ global $wpdb;
 	<script language="javascript" type="text/javascript" src="<?php echo get_option('siteurl') ?>/wp-includes/js/tinymce/tiny_mce_popup.js"></script>
 	<script language="javascript" type="text/javascript" src="tinymce.js"></script>
 	<script language="javascript" type="text/javascript" src="getsearch.js"></script>
-	<script language="javascript" type="text/javascript" src="getFav.js"></script>
+	<script language="javascript" type="text/javascript" src="getfav.js"></script>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <?php
 wp_admin_css( 'global', true );
