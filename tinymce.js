@@ -19,12 +19,25 @@ function getCheckedValue(radioObj) {
 	return "";
 }
 
-function insertWP1GMPcode(id) {
+function insert1gByID(id) {
 
 	var tagtext;
 	var play = id;
 
 	tagtext = '[music1g play=#' + play + ']';
+
+	window.tinyMCE.execInstanceCommand('content', 'mceInsertContent', false, tagtext);
+	tinyMCEPopup.editor.execCommand('mceRepaint');
+	tinyMCEPopup.close();
+	return;
+}
+
+function insert1gByURL() {
+
+	var tagtext;
+	var play = document.getElementById("wplay_url").value;
+    play = play.replace(/\s/g,"&nbsp"); 
+	tagtext = '[music1g play=' + play + ']';
 
 	window.tinyMCE.execInstanceCommand('content', 'mceInsertContent', false, tagtext);
 	tinyMCEPopup.editor.execCommand('mceRepaint');

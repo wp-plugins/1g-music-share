@@ -2,8 +2,8 @@
 Contributors: 1g1g.info, 1g1g.com
 Tags: 1g1g, music, player, wordpress, music-share
 Requires at least: 2.5
-Tested up to: 3.1.3
-Stable Tag: 0.9.3
+Tested up to: 3.2.1
+Stable Tag: 1.1
 
 This plugin inserts 1g1g-miniplayer into your posts and pages easily.（插入亦歌迷你播放器到你的文章或页面中）
 
