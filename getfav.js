@@ -11,18 +11,18 @@ if (xmlHttp==null)
   } 
 var url="http://blog.1g1g.info/get1gfav.php"
 url=url+"?user="+str
-xmlHttp.onreadystatechange=stateChanged 
+xmlHttp.onreadystatechange=stateChangedFav 
 xmlHttp.open("GET",url,true)
 xmlHttp.send(null)
-document.getElementById("searchlists_fav").innerHTML='<p>获取收藏记录中...<p>'
+document.getElementById("searchlistsfav").innerHTML='<p>获取收藏记录中...<p>'
 } 
 
-function stateChanged() 
+function stateChangedFav() 
 { 
 if (xmlHttp.readyState==4 || xmlHttp.readyState=="complete")
  { 
 if (xmlHttp.status == 200) { 
- document.getElementById("searchlists_fav").innerHTML=xmlHttp.responseText 
+ document.getElementById("searchlistsfav").innerHTML=xmlHttp.responseText 
  } 
 }
 }

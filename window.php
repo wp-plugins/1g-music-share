@@ -126,7 +126,7 @@ body {
 </div>
 
 <div id="content3" class="hidden">
-    <div id="searchlists_fav"></div>
+    <div id="searchlistsfav"></div>
 </div>
 <?php
 $options = get_option('wp1gsettings');
