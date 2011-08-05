@@ -3,7 +3,7 @@
 Plugin Name:1g-music-share
 Plugin URI: http://blog.1g1g.info/wp-plugin/
 Description: This plugin inserts 1g1g-miniplayer into your posts and pages easily.（插入亦歌迷你播放器到你的文章或页面中）
-Version: 1.2.1
+Version: 1.2.2
 Author: Ye Xiaoxing
 Author URI: http://me.1g1g.info/
 */
@@ -52,7 +52,7 @@ else
     
     $ygCode = <<<EOT
         <object type="application/x-shockwave-flash" data="http://public.1g1g.com/miniplayer/miniPlayer.swf" width="{$o['width']}" height="{$o['height']}" id="1gMiniPlayer">
-            <param name="movie" value="miniPlayer.swf" />
+            <param name="movie" value="http://public.1g1g.com/miniplayer/miniPlayer.swf" />
             <param name="allowScriptAccess" value="always" />
             <param name="FlashVars" value="play={$play}&isAutoPlay={$a}" />
             <param name="wmode" value ="transparent" />
