@@ -17,6 +17,23 @@ xmlHttp.send(null)
 document.getElementById("searchlistsfav").innerHTML='<p>获取收藏记录中...<p>'
 } 
 
+function showFav_input()
+{
+str = document.getElementById("wplay_user").value
+xmlHttp=GetXmlHttpObject()
+if (xmlHttp==null)
+  {
+  alert ("Browser does not support HTTP Request")
+  return
+  } 
+var url="http://blog.1g1g.info/get1gfav.php"
+url=url+"?user="+str
+xmlHttp.onreadystatechange=stateChangedFav 
+xmlHttp.open("GET",url,true)
+xmlHttp.send(null)
+document.getElementById("searchlistsfav").innerHTML='<p>获取收藏记录中...<p>'
+} 
+
 function stateChangedFav() 
 { 
 if (xmlHttp.readyState==4 || xmlHttp.readyState=="complete")
