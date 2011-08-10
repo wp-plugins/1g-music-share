@@ -120,17 +120,24 @@ body {
 	<table><tbody>
         <tr><td width="400px"><p style="font-size: 13px;" align="center">请输入歌曲URL（仅支持mp3格式）</p></td></tr>
         <tr><td align="center"><input type="text" id="wplay_url" size="40px"  style="font-size: 13px;" />
-            <input type="button" id="insert2" value="插入" onClick="javascript:insert1gByURL();"  style="font-size: 13px;" /></td>
+            <input type="button" id="insert2" value="插入" onClick="insert1gByURL();"  style="font-size: 13px;" /></td>
         </tr>
     </tbody></table>
 </div>
 
 <div id="content3" class="hidden">
-    <div id="searchlists_fav"></div>
+	<table><tbody>
+        <tr><td width="400px"><p style="font-size: 13px;" align="center">请输入亦歌用户名</p></td></tr>
+        <tr><td align="center"><input type="text" id="wplay_user" size="40px"  style="font-size: 13px;" value="<?php $options = get_option('wp1gsettings');echo $options['user']; ?>" />
+            <input type="button" id="insert2" value="读取" onClick="showFav_input();" style="font-size: 13px;"  /></td>
+        </tr>
+    </tbody></table>
+    <div id="searchlistsfav"></div>
 </div>
 <?php
 $options = get_option('wp1gsettings');
-echo '<script type="text/javascript">showFav("'.$options['user'].'");</script>';
+if(isset($options['user']))
+	echo '<script type="text/javascript">showFav("'.$options['user'].'");</script>';
 ?>
 </body>
 </html>
