@@ -9,7 +9,7 @@ if (xmlHttp==null)
   alert ("Browser does not support HTTP Request")
   return
   } 
-var url="http://blog.1g1g.info/get1gfav.php"
+var url="getfav.php"
 url=url+"?user="+str
 xmlHttp.onreadystatechange=stateChangedFav 
 xmlHttp.open("GET",url,true)
@@ -26,7 +26,7 @@ if (xmlHttp==null)
   alert ("Browser does not support HTTP Request")
   return
   } 
-var url="http://blog.1g1g.info/get1gfav.php"
+var url="getfav.php"
 url=url+"?user="+str
 xmlHttp.onreadystatechange=stateChangedFav 
 xmlHttp.open("GET",url,true)
