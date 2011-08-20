@@ -3,7 +3,7 @@
 Plugin Name:1g-music-share
 Plugin URI: http://blog.1g1g.info/wp-plugin/
 Description: This plugin inserts 1g1g-miniplayer into your posts and pages easily.（插入亦歌迷你播放器到你的文章或页面中）
-Version: 1.2.4
+Version: 1.2.5
 Author: Ye Xiaoxing
 Author URI: http://me.1g1g.info/
 */
@@ -54,7 +54,7 @@ else
         <object type="application/x-shockwave-flash" data="http://public.1g1g.com/miniplayer/miniPlayer.swf" width="{$o['width']}" height="{$o['height']}" id="1gMiniPlayer">
             <param name="movie" value="http://public.1g1g.com/miniplayer/miniPlayer.swf" />
             <param name="allowScriptAccess" value="always" />
-            <param name="FlashVars" value="play={$play}&isAutoPlay={$a}" />
+            <param name="FlashVars" value="play={$play}&isAutoPlay={$a}&textColor=0x{$o['textColor']}&bgColor1=0x{$o['bgColor1']}&bgColor2=0x{$o['bgColor2']}&borderColor=0x{$o['borderColor']}&btnColor=0x{$o['btnColor']}&btnGlowColor=0x{$o['btnGlowColor']}" />
             <param name="wmode" value ="transparent" />
         </object>
 EOT;
@@ -68,8 +68,19 @@ function wp1g_get_options(){
 	$defaults['isauto'] = 'f';
 	$defaults['user'] = '';
 
+	$defaults['bgColor1'] = 'eeeeee';
+	$defaults['textColor'] = '000000';
+	$defaults['bgColor2'] = 'dddddd';
+	$defaults['borderColor'] = '999999';
+	$defaults['btnColor'] = '0160e6';
+	$defaults['btnGlowColor'] = '2da0fd';
+
 	$options = get_option('wp1gsettings');
 	if (!is_array($options)){
+		$options = $defaults;
+		update_option('wp1gsettings', $options);
+	}
+	if (!isset($options['bgColor1'])) {
 		$options = $defaults;
 		update_option('wp1gsettings', $options);
 	}
@@ -84,6 +95,22 @@ function wp1g_optionpage() {
 		if ($_POST['wp1g']){
 			update_option('wp1gsettings', $_POST['wp1g']);
 			$message = '<div class="updated"><p><strong>设置已保存。</strong></p></div>';
+			if ($_POST['wp1g']['resetall']){
+	$defaults = array();
+	$defaults['width'] = '200';
+	$defaults['height'] = '24';
+	$defaults['isauto'] = 'f';
+	$defaults['user'] = '';
+
+	$defaults['bgColor1'] = 'eeeeee';
+	$defaults['textColor'] = '000000';
+	$defaults['bgColor2'] = 'dddddd';
+	$defaults['borderColor'] = '999999';
+	$defaults['btnColor'] = '0160e6';
+	$defaults['btnGlowColor'] = '2da0fd';
+				update_option('wp1gsettings', $defaults);
+				$message = '<div class="updated"><p><strong>设置已重置。</strong></p></div>';
+			}
 		}
 
 		$o = wp1g_get_options();
@@ -91,6 +118,7 @@ function wp1g_optionpage() {
 		$cauto= ($o['isauto'] == 't') ? ' checked="checked"' : '';
 		$cauton= ($o['isauto'] == 't') ? '' : ' checked="checked"';
 		echo <<<EOT
+		<script type="text/javascript" src="../wp-content/plugins/1g-music-share/jscolor/jscolor.js"></script>
 		<div class="wrap">
 			<h2>亦歌分享插件设置</h2>
 			{$message}
@@ -116,6 +144,35 @@ function wp1g_optionpage() {
 							<input type="radio" value="t" name="wp1g[isauto]"{$cauto}/> 是<br />
 							<input type="radio" value="f" name="wp1g[isauto]"{$cauton}/> 否
 						</td>
+					</tr>
+					
+					<tr valign="top">
+						<th width="33%" scope="row">背景渐变色1</th>
+						<td><input class="color" value="{$o['bgColor1']}" name="wp1g[bgColor1]" size="50"/></td>
+					</tr>
+					<tr valign="top">
+						<th width="33%" scope="row">背景渐变色2</th>
+						<td><input class="color" value="{$o['bgColor2']}" name="wp1g[bgColor2]" size="50"/></td>
+					</tr>
+					<tr valign="top">
+						<th width="33%" scope="row">文字颜色</th>
+						<td><input class="color" value="{$o['textColor']}" name="wp1g[textColor]" size="50"/></td>
+					</tr>
+					<tr valign="top">
+						<th width="33%" scope="row">边框颜色</th>
+						<td><input class="color" value="{$o['borderColor']}" name="wp1g[borderColor]" size="50"/></td>
+					</tr>
+					<tr valign="top">
+						<th width="33%" scope="row">按钮颜色</th>
+						<td><input class="color" value="{$o['btnColor']}" name="wp1g[btnColor]" size="50"/></td>
+					</tr>
+					<tr valign="top">
+						<th width="33%" scope="row">按钮光晕色</th>
+						<td><input class="color" value="{$o['btnGlowColor']}" name="wp1g[btnGlowColor]" size="50"/></td>
+					</tr>
+					<tr valign="top">
+						<th width="33%" scope="row">重置所有选项？</th>
+						<td><input type="checkbox" name="wp1g[resetall]" size="50"/></td>
 					</tr>
 				</table>
 			</fieldset>
