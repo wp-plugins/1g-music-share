@@ -3,7 +3,7 @@ Contributors: 1g1g.info, 1g1g.com
 Tags: 1g1g, music, player, wordpress, music-share
 Requires at least: 2.5
 Tested up to: 3.2.1
-Stable Tag: 1.2.5
+Stable Tag: 1.3.2
 
 This plugin inserts 1g1g-miniplayer into your posts and pages easily.（插入亦歌迷你播放器到你的文章或页面中）
 
@@ -32,6 +32,12 @@ Or
 
 == Changelog ==
 
+= 1.3.1 =
+* Added a button in Upload Area.
+
+= 1.3 =
+* Added a choose that enable you to change the autoplay setting when adding music.
+
 = 1.2.4 =
 * Fixed IE crossdomain bug.(Maybe)
 
@@ -55,9 +61,18 @@ Or
 == Frequently Asked Questions ==
 
 = Should readers need open 1g1g.com to listen music I choose? =
-No, this plugin needn't open 1g1g.com to listen music.
+No, this plugin needn't open 1g1g.com to listen music. It is only a player that gets data from 1g1g server.
+
+= 我的读者要打开亦歌网站来听我所选的歌吗？ =
+不，这并不需要，这只是从亦歌网站获取歌曲的链接，是一个几乎单独的播放器。
 
 == Upgrade Notice ==
+= 1.3.1 =
+在文件上传栏添加了添加按钮。感谢用户Muslc的建议。
+
+= 1.3 =
+可以在添加歌曲时选择是否自动播放了。
+
 = 1.2.4 =
 尝试修改IE8的跨域问题。
 
@@ -70,13 +85,3 @@ No, this plugin needn't open 1g1g.com to listen music.
 = 1.2 =
 大更新！增加了从亦歌收藏来分享的功能！推荐更新！
 Big update! Added a feature that allow you to share music from 1g1g.com's fav list. You must update it.
-
-= 0.6 =
-Fixed some UI problems in IE again.
-Changed UI ,now it's more beautiful.
-再次修正在IE下的界面错误。
-改变了UI，现在它更漂亮了。
-
-= 0.5 =
-Fixed some problem in IE.
-

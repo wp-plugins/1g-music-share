@@ -109,6 +109,7 @@ body {
 <div id="content1">
 	<table><tbody>
         <tr><td width="400px"><p style="font-size: 13px;" align="center">请输入歌手、歌名、专辑名进行搜索</p></td></tr>
+	<tr><td width="400px"><input type="checkbox" id="autoplay_search" /> 自动播放</td></tr>
         <tr><td align="center"><input type="text" id="wplay" size="40px"  style="font-size: 13px;" onkeydown="enterIn(event);" />
             <input type="button" id="insert2" value="搜索" onClick="showHint();"  style="font-size: 13px;" /></td>
         </tr>
@@ -119,6 +120,7 @@ body {
 <div id="content2" class="hidden">
 	<table><tbody>
         <tr><td width="400px"><p style="font-size: 13px;" align="center">请输入歌曲URL（仅支持mp3格式）</p></td></tr>
+	<tr><td width="400px"><input type="checkbox" id="autoplay_url" /> 自动播放</td></tr>
         <tr><td align="center"><input type="text" id="wplay_url" size="40px"  style="font-size: 13px;" />
             <input type="button" id="insert2" value="插入" onClick="insert1gByURL();"  style="font-size: 13px;" /></td>
         </tr>
@@ -127,6 +129,7 @@ body {
 
 <div id="content3" class="hidden">
 	<table><tbody>
+	<tr><td width="400px"><input type="checkbox" id="autoplay_fav" /> 自动播放</td></tr>
         <tr><td width="400px"><p style="font-size: 13px;" align="center">请输入亦歌用户名</p></td></tr>
         <tr><td align="center"><input type="text" id="wplay_user" size="40px"  style="font-size: 13px;" value="<?php $options = get_option('wp1gsettings');echo $options['user']; ?>" />
             <input type="button" id="insert2" value="读取" onClick="showFav_input();" style="font-size: 13px;"  /></td>
