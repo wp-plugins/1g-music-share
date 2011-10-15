@@ -3,7 +3,7 @@
 Plugin Name:1g-music-share
 Plugin URI: http://blog.1g1g.info/wp-plugin/
 Description: This plugin inserts 1g1g-miniplayer into your posts and pages easily.（插入亦歌迷你播放器到你的文章或页面中）
-Version: 1.3.2
+Version: 1.3.3
 Author: Ye Xiaoxing
 Author URI: http://me.1g1g.info/
 */
@@ -191,8 +191,9 @@ EOT;
 function wp_1gmp_mediabutton($context) {
 	$wp1g_plugin_url= WP_PLUGIN_URL.'/'.str_replace(basename( __FILE__),"",plugin_basename(__FILE__));
 	$flashbutton_html = <<<EOF
-<a href="javascript:wp1g_upload_mediabtn_click();" id="addupload_media_btn" title="添加亦歌迷你播放器"><img src="{$wp1g_plugin_url}note_20.png" alt="添加亦歌迷你播放器"></a><script type="text/javascript">
+<a href="javascript:wp1g_upload_mediabtn_click();" id="addupload_media_btn" title="添加亦歌迷你播放器"><img id="wp1gmediabutton" src="{$wp1g_plugin_url}note_20.png" alt="添加亦歌迷你播放器"></a><script type="text/javascript">
 function wp1g_upload_mediabtn_click(){document.getElementById("content").focus();tinyMCE.activeEditor.execCommand('wp1gmp');}
+if(document.getElementById("dashboard_quick_press")){document.getElementById("wp1gmediabutton").style.display="none";}
 </script>
 EOF;
 	$wp_customized_mediabutton = '%s'.$flashbutton_html;
