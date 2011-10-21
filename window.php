@@ -1,7 +1,7 @@
 <?php
 $wpconfig = realpath("../../../wp-config.php");
 if (!file_exists($wpconfig))  {
-	echo "Could not found wp-config.php. Error in path :\n\n".$wpconfig ;	
+	echo "Could not found wp-config.php. Maybe you use it in none WordPress site. Error in path :\n\n".$wpconfig ;	
 	die;	
 }
 require_once($wpconfig);
@@ -11,19 +11,19 @@ global $wpdb;
 ?>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-	<title>插入亦歌播放器</title>	
-	<script language="javascript" type="text/javascript" src="<?php echo get_option('siteurl') ?>/wp-includes/js/tinymce/tiny_mce_popup.js"></script>
-	<script language="javascript" type="text/javascript" src="tinymce.js"></script>
+	<title>插入亦歌播放器</title>
 	<script language="javascript" type="text/javascript" src="getsearch.js"></script>
 	<script language="javascript" type="text/javascript" src="getfav.js"></script>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
 <?php
 wp_admin_css( 'global', true );
 wp_admin_css( 'wp-admin', true );
 ?>
+
 <script type="text/javascript">
 function enterIn(evt){
-    var evt=evt?evt:(window.event?window.event:null);//兼容IE和FF
+    var evt=evt?evt:(window.event?window.event:null);
     if (evt.keyCode==13){
         showHint();
     }
@@ -42,6 +42,45 @@ function flipTab(n) {
 		}
 	}
 }
+function insert1gByID(id) {
+
+	var tagtext;
+	var play = id;
+	var autoplay = document.getElementById("autoplay_search").checked;
+
+	tagtext = '[music1g play=#' + play + ' autoplay=' + autoplay + ']';
+
+
+	var win = window.dialogArguments || opener || parent || top;
+	win.send_to_editor(tagtext );
+	return false;
+}
+
+function insert1gByFavID(id) {
+
+	var tagtext;
+	var play = id;
+	var autoplay = document.getElementById("autoplay_fav").checked;
+
+	tagtext = '[music1g play=#' + play + ' autoplay=' + autoplay + ']';
+
+	var win = window.dialogArguments || opener || parent || top;
+	win.send_to_editor(tagtext );
+	return false;
+}
+
+function insert1gByURL() {
+
+	var tagtext;
+	var play = document.getElementById("wplay_url").value;
+    play = play.replace(/\s/g,"&nbsp"); 
+	var autoplay = document.getElementById("autoplay_url").checked;
+	tagtext = '[music1g play=' + play + ' autoplay=' + autoplay + ']';
+
+	var win = window.dialogArguments || opener || parent || top;
+	win.send_to_editor(tagtext );
+	return false;
+}
 </script>
 <style type="text/css">
 body {
@@ -54,6 +93,7 @@ body {
 }
 #sharebutton {
 	color: #099;
+	width: 30px;
 }
 #tabs {
 	padding: 15px 15px 3px;
