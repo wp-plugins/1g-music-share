@@ -3,28 +3,10 @@
 Plugin Name:1g-music-share
 Plugin URI: http://blog.1g1g.info/wp-plugin/
 Description: This plugin inserts 1g1g-miniplayer into your posts and pages easily.（插入亦歌迷你播放器到你的文章或页面中）
-Version: 1.2.5
+Version: 1.3.3
 Author: Ye Xiaoxing
 Author URI: http://me.1g1g.info/
 */
-function wp1gmp_addbuttons() {
-	// Add only in Rich Editor mode
-	if ( get_user_option('rich_editing') == 'true') {
-	// add the button for wp25 in a new way
-		add_filter("mce_external_plugins", "add_wp1gmp_tinymce_plugin", 5);
-		add_filter('mce_buttons', 'register_wp1gmp_button', 5);
-	}
-}
-
-function register_wp1gmp_button($buttons) {
-	array_push($buttons, "separator", "wp1gmp");
-	return $buttons;
-}
-
-function add_wp1gmp_tinymce_plugin($plugin_array) {
-	$plugin_array['wp1gmp'] = get_option('siteurl').'/wp-content/plugins/1g-music-share/editor_plugin.js';	
-	return $plugin_array;
-}
 
 function wp1gmp_mce_valid_elements($init) {
 	if ( isset( $init['extended_valid_elements'] ) 
@@ -43,18 +25,20 @@ function wp1gmp_change_tinymce_version($version) {
 function wp1g_func($atts) {
 	extract(shortcode_atts(array(
 		'play' => 'error',
+		'autoplay' => 'error',
 	), $atts));
 if ($play=="error")
-  	return '<p>在处理亦歌代码时出错。您可能并未设置play参数。</p>';
+  	return '<p>在处理1g-music-player代码时出错。您可能并未设置play参数。</p>';
 else
+
     $o = wp1g_get_options();
-    $a = ($o['isauto'] == 't') ? 'true' : 'false';
-    
+    	if ($autoplay=="error")
+  		$autoplay=($o['isauto'] == 't') ? 'true' : 'false';
     $ygCode = <<<EOT
         <object type="application/x-shockwave-flash" data="http://public.1g1g.com/miniplayer/miniPlayer.swf" width="{$o['width']}" height="{$o['height']}" id="1gMiniPlayer">
             <param name="movie" value="http://public.1g1g.com/miniplayer/miniPlayer.swf" />
             <param name="allowScriptAccess" value="always" />
-            <param name="FlashVars" value="play={$play}&isAutoPlay={$a}&textColor=0x{$o['textColor']}&bgColor1=0x{$o['bgColor1']}&bgColor2=0x{$o['bgColor2']}&borderColor=0x{$o['borderColor']}&btnColor=0x{$o['btnColor']}&btnGlowColor=0x{$o['btnGlowColor']}" />
+            <param name="FlashVars" value="play={$play}&isAutoPlay={$autoplay}&textColor=0x{$o['textColor']}&bgColor1=0x{$o['bgColor1']}&bgColor2=0x{$o['bgColor2']}&borderColor=0x{$o['borderColor']}&btnColor=0x{$o['btnColor']}&btnGlowColor=0x{$o['btnGlowColor']}" />
             <param name="wmode" value ="transparent" />
         </object>
 EOT;
@@ -135,6 +119,10 @@ function wp1g_optionpage() {
 						<td><input type="text" value="{$o['width']}" name="wp1g[width]" size="50"/></td>
 					</tr>
 					<tr valign="top">
+						<th width="33%" scope="row">启用TinyMCE编辑器中图标</th>
+						<td><input type="checkbox" value="{$o['height']}" name="wp1g[tinymceicon]" size="50" /></td>
+					</tr>
+					<tr valign="top">
 						<th width="33%" scope="row">亦歌用户名</th>
 						<td><input type="text" value="{$o['user']}" name="wp1g[user]" size="50"/></td>
 					</tr>
@@ -184,9 +172,18 @@ function wp1g_optionpage() {
 EOT;
 }
 
+// Add Media Button to Upload Area
+function wp_1gmp_mediabutton($context) {
+	$wp1g_plugin_url= WP_PLUGIN_URL.'/'.str_replace(basename( __FILE__),"",plugin_basename(__FILE__));
+	$flashbutton_html = <<<EOF
+<a href="{$wp1g_plugin_url}window.php?TB_iframe=1&width=500&height=600" id="add1g_mini_player_btn" class="thickbox" title="添加亦歌迷你播放器"><img id="wp1gmediabutton" src="{$wp1g_plugin_url}note_20.png" alt="添加亦歌迷你播放器"></a>
+EOF;
+	$wp_customized_mediabutton = '%s'.$flashbutton_html;
+	return sprintf($context, $wp_customized_mediabutton);
+}
+add_filter('media_buttons_context', 'wp_1gmp_mediabutton');
+
 add_shortcode('music1g', 'wp1g_func');
-add_filter('tiny_mce_before_init', 'wp1gmp_mce_valid_elements', 0);
-add_filter('tiny_mce_version', 'wp1gmp_change_tinymce_version');
-add_action('init', 'wp1gmp_addbuttons');
 add_action('admin_menu', 'wp1g_option');
+
 ?>
