@@ -9,7 +9,7 @@ if (xmlHttp==null)
   alert ("Browser does not support HTTP Request")
   return
   } 
-var url="getfav.php"
+var url="fav.php"
 url=url+"?user="+str
 xmlHttp.onreadystatechange=stateChangedFav 
 xmlHttp.open("GET",url,true)
