@@ -9,7 +9,7 @@ if (xmlHttp==null)
   alert ("Browser does not support HTTP Request")
   return
   } 
-var url="search.php"
+var url="getsearch.php"
 url=url+"?q="+str
 xmlHttp.onreadystatechange=stateChanged 
 xmlHttp.open("GET",url,true)
