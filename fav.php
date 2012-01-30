@@ -1,7 +1,7 @@
  <?php
 if(!$_GET['user'])
 {
-echo 'æ~\ªè®¾ç½®äº¦æ­~Lç~T¨æ~H·å~P~Mï¼~Lè¯·å~\¨<a href="options-general.php?page=wp-1g.php">è®¾ç½®é¡µ</a>è®¾ç½®';
+echo 'Have not set the 1g1g.com username, please go to<a href="options-general.php?page=wp-1g.php">Setting Page</a> to set it.';
 }
 else
 (
