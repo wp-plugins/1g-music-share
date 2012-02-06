@@ -11,6 +11,7 @@ if (xmlHttp==null)
   } 
 var url="search.php"
 url=url+"?q="+str
+url=encodeURIComponent(url)
 xmlHttp.onreadystatechange=stateChanged 
 xmlHttp.open("GET",url,true)
 xmlHttp.send(null)
