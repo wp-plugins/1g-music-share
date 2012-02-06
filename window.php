@@ -1,4 +1,5 @@
 <?php
+header('Content-Type:text/html;charset=utf-8');
 $wpconfig = realpath("../../../wp-config.php");
 if (!file_exists($wpconfig))  {
 	echo "Could not found wp-config.php. Maybe you use it in none WordPress site. Error in path :\n\n".$wpconfig ;	
