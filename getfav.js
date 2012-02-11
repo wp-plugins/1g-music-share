@@ -10,8 +10,7 @@ if (xmlHttp==null)
   return
   } 
 var url="fav.php"
-url=url+"?user="+str
-url=encodeURIComponent(url)
+url=url+"?user="+encodeURIComponent(str)
 xmlHttp.onreadystatechange=stateChangedFav 
 xmlHttp.open("GET",url,true)
 xmlHttp.send(null)
