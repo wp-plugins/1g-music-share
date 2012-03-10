@@ -1,4 +1,4 @@
- <?php
+<?php
 header('Content-Type:text/html;charset=utf-8');
 $doc = simplexml_load_file("http://search.1g1g.com/public/songs?encoding=utf8&query=".$_GET['q']);
 echo '<label style="font-size:12px;">搜索结果：</label>';
@@ -11,4 +11,4 @@ foreach ($doc->songlist->song as $item) {
   echo ')">分享</div></th></tr>';
 }
 echo  '</table>';
- ?>
+?>

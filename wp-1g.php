@@ -3,7 +3,7 @@
 Plugin Name:1g-music-share
 Plugin URI: http://blog.1g1g.info/wp-plugin/
 Description: This plugin inserts 1g1g-miniplayer into your posts and pages easily.（插入亦歌迷你播放器到你的文章或页面中）
-Version: 1.4.4
+Version: 1.4.5
 Author: Ye Xiaoxing
 Author URI: http://blog.1g1g.info/
 */
