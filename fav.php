@@ -1,7 +1,7 @@
 <?php
 if(!$_GET['user'])
 {
-echo 'Have not set the 1g1g.com username, please go to<a href="options-general.php?page=wp-1g.php">Setting Page</a> to set it.';
+echo '尚未设置亦歌用户名，请到 <a href="options-general.php?page=wp-1g.php">设置页</a> 设置。';
 }
 else
 {
